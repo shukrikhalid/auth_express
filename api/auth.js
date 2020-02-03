@@ -63,7 +63,7 @@ module.exports = (app, db) => {
     if(auth != null){
       db.AuthToken.destroy({
         where: {
-          token: req.params.id
+          token: req.headers.authorization
         }
       })
     }
