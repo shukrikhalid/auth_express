@@ -29,44 +29,44 @@ module.exports = (app, db) => {
     db.User.findByPk(req.params.id).then( (result) => res.json(result))
   );
 
-  app.post("/user", async (req, res) => {
+  // app.post("/user", async (req, res) => {
     
-    var salt = randomstring.generate({
-      length: 12,
-      charset: 'alphabetic'
-    });
+  //   var salt = randomstring.generate({
+  //     length: 12,
+  //     charset: 'alphabetic'
+  //   });
 
-    var encryptPassword = sha256(`${req.body.password}${salt}`)
+  //   var encryptPassword = sha256(`${req.body.password}${salt}`)
 
 
-    var user = await  db.User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: encryptPassword,
-      salt: salt
-    })
+  //   var user = await  db.User.create({
+  //     name: req.body.name,
+  //     email: req.body.email,
+  //     password: encryptPassword,
+  //     salt: salt
+  //   })
 
-    res.json(user)
+  //   res.json(user)
 
-  });
+  // });
 
-  app.put( "/user/:id", (req, res) =>
-    db.User.update({
-      name: req.body.name,
-      email: req.body.email
-    },
-    {
-      where: {
-        id: req.params.id
-      }
-    }).then( (result) => res.json(result) )
-  );
+  // app.put( "/user/:id", (req, res) =>
+  //   db.User.update({
+  //     name: req.body.name,
+  //     email: req.body.email
+  //   },
+  //   {
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then( (result) => res.json(result) )
+  // );
 
-  app.delete( "/user/:id", (req, res) =>
-    db.User.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then( (result) => res.json(result) )
-  );
+  // app.delete( "/user/:id", (req, res) =>
+  //   db.User.destroy({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then( (result) => res.json(result) )
+  // );
 }
