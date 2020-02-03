@@ -1,0 +1,29 @@
+{
+  "development": {
+    "username": "shukri",
+    "password": "123",
+    "database": "auth_express_db",
+    "host": "192.168.64.2",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "shukri",
+    "password": "123",
+    "database": "auth_express_db",
+    "host": "192.168.64.2",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "shukri",
+    "password": "123",
+    "database": "auth_express_db",
+    "host": "192.168.64.2",
+    "dialect": "mysql",
+    "logging": false,
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "idle": 10000
+    }
+  }
+}
